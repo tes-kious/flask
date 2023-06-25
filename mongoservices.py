@@ -41,7 +41,7 @@ class mongoservices:
             #return jsonify(data)
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            out = samples_coll.find(data, {"_id": 0 }).sort("_id", -1)
+            cursor = samples_coll.find(data, {"_id": 0 }).sort("_id", -1)
             list_cur = list(cursor)
             json_data = dumps(list_cur)
             
