@@ -29,7 +29,7 @@ class mongoservices:
             samples_coll = db.AllRideRequests
             cursor = samples_coll.find_one(data, {"_id": 0 })
             list_cur = list(cursor)
-            json_data = dumps(list_cur)
+            json_data = dumps(list_cur, indent = 2)
             return jsonify(json_data)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": outs})
