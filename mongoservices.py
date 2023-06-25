@@ -31,9 +31,11 @@ class mongoservices:
             limit = 1;
             cursor = samples_coll.find(data, {"_id": 0 }).sort(sort).limit(limit);
             #cursor = samples_coll.find_one(data, {"_id": 0 })
-            json_data = json.dumps(cursor)
+            #json_data = json.dumps(cursor)
             #return jsonify(json_data)  
             #return jsonify({"code":"1","status" : "ok"})
+            list_cur = list(cursor)
+            json_data = dumps(list_cur)
             return jsonify({"code":"1","status" : "ok", "data": json_data})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
