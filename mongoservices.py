@@ -27,10 +27,8 @@ class mongoservices:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
             out = samples_coll.find_one(data)
-            myList = []
-            for item in out:
-               myList.append(item)
-            return jsonify(out)  
+            outs = json.loads(out)
+            return jsonify(outs)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": dt})
         except Exception as ex:
