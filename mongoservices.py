@@ -15,7 +15,7 @@ class mongoservices:
     def save_sample(self, data):
         try:
             db = mongoservices.condb(self)
-            samples_coll = db.samples
+            samples_coll = db.AllRideRequests
             samples_coll.insert_one(data)
             return jsonify({"code":"1","status":"success"})
         except Exception as ex:
