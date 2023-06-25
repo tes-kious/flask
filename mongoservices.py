@@ -27,7 +27,21 @@ class mongoservices:
             #return jsonify(data)
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            out = samples_coll.find_one(data, {"_id": 0 })
+            out = samples_coll.find_one(data, {"_id": 0 }).sort( { "driverId": 1 } )
+            outs = json.dumps(out)
+            outt = urllib.parse.unquote(outs)
+            return jsonify(outt)  
+            #return jsonify({"code":"1","status" : "ok"})
+            #return jsonify({"code":"1","status" : "ok", "data": outs})
+        except Exception as ex:
+            return jsonify({"code":"0","status":ex})
+
+    def select_driver(self, data):
+        try:
+            #return jsonify(data)
+            db = mongoservices.condb(self)
+            samples_coll = db.AllRideRequests
+            out = samples_coll.find(data, {"_id": 0 }).sort( { "driverId": 1 } )
             outs = json.dumps(out)
             outt = urllib.parse.unquote(outs)
             return jsonify(outt)  
