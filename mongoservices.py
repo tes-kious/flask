@@ -30,8 +30,9 @@ class mongoservices:
             myList = []
             for item in out:
                mylist.append(item)
-            dt = jsonify(mylist)    
-            return jsonify({"code":"1","status" : "ok", "data": dt})
+            dt = jsonify(mylist)  
+            return jsonify({"code":"1","status" : "ok"})
+            #return jsonify({"code":"1","status" : "ok", "data": dt})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
             
