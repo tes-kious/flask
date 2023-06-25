@@ -27,7 +27,7 @@ class mongoservices:
             #return jsonify(data)
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            out = samples_coll.find_one(data, {"_id": 0 }).sort( { "driverId": 1 } )
+            out = samples_coll.find_one(data, {"_id": 0 })
             outs = json.dumps(out)
             outt = urllib.parse.unquote(outs)
             return jsonify(outt)  
