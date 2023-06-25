@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from flask import Flask,jsonify, request
 import requests
 import json
+import urllib
 
 class mongoservices:
     def condb(self):
@@ -28,7 +29,8 @@ class mongoservices:
             samples_coll = db.AllRideRequests
             out = samples_coll.find_one(data, {"_id": 0 })
             outs = json.dumps(out)
-            return jsonify(outs.decode('unicode-escape').encode('utf8'))  
+            outt = urllib.parse.unquote(outs)
+            return jsonify(outt)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": outs})
         except Exception as ex:
