@@ -20,6 +20,17 @@ class mongoservices:
             return jsonify({"code":"1","status":"success"})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
+
+    def select_sample(self, data):
+        try:
+            db = mongoservices.condb(self)
+            samples_coll = db.AllRideRequests
+            out = sampels_coll.find_one({ "driverId" : "waiting1" })
+            return jsonify({"code":"1","status": out.text})
+        except Exception as ex:
+            return jsonify({"code":"0","status":ex})
+
+    out = collection.find_one({'_id': ObjectId('64834d22141c23927e574c77')})
             
     def save_smpl(self, data):
         try:
