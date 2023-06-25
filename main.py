@@ -19,7 +19,7 @@ def save_sample():
     return mongosvc.save_sample(data)
     
 @app.route('/api/findDriver', methods=['POST'])
-def select_sample():
+def select_driver():
     data = request.json
     return mongosvc.select_driver(data)
 
