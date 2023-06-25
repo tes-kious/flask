@@ -42,9 +42,12 @@ class mongoservices:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
             out = samples_coll.find(data, {"_id": 0 }).sort( { "driverId": 1 } )
-            outs = json.dumps(out)
-            outt = urllib.parse.unquote(outs)
-            return jsonify(outt)  
+            newList[]
+            for item in out:
+                newList.append(item)
+                #outs = json.dumps(out)
+                #outt = urllib.parse.unquote(outs)
+            return jsonify(newList)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": outs})
         except Exception as ex:
