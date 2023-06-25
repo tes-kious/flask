@@ -19,7 +19,7 @@ def save_sample():
     return mongosvc.save_sample(data)
     
 @app.route('/api/find', methods=['POST'])
-def save_sample():
+def select_sample():
     data = request.json
     return mongosvc.select_sample(data)
 
