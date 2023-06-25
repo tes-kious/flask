@@ -23,7 +23,7 @@ class mongoservices:
             
     def save_smpl(self, data):
         try:
-            url = "https://https://ap-southeast-1.aws.data.mongodb-api.com/app/data-lbmdo/endpoint/data/v1/action/insertOne"
+            url = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-lbmdo/endpoint/data/v1/action/insertOne"
             payload = json.dumps({
                 "collection": "AllRideRequests",
                 "database": "Towing",
