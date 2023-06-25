@@ -27,7 +27,10 @@ class mongoservices:
             #return jsonify(data)
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            cursor = samples_coll.find_one(data, {"_id": 0 })
+            const sort = { _id: -1 };
+            const limit = 1;
+            cursor = samples_coll.find(data, {"_id": 0 }).sort(sort).limit(limit);
+            #cursor = samples_coll.find_one(data, {"_id": 0 })
             json_data = json.dumps(cursor)
             #return jsonify(json_data)  
             #return jsonify({"code":"1","status" : "ok"})
