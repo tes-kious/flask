@@ -27,9 +27,9 @@ class mongoservices:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
             out = samples_coll.find_one(data)
-            #myList = []
-            #for item in out:
-            #   mylist.append(item)
+            myList = []
+            for item in out:
+               mylist.append(item)
             #dt = jsonify(mylist)  
             return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": dt})
