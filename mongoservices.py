@@ -28,9 +28,9 @@ class mongoservices:
             samples_coll = db.AllRideRequests
             out = samples_coll.find_one(data, {"_id": 0 })
             outs = json.dumps(out)
-            return jsonify(outs)  
+            #return jsonify(outs)  
             #return jsonify({"code":"1","status" : "ok"})
-            #return jsonify({"code":"1","status" : "ok", "data": dt})
+            return jsonify({"code":"1","status" : "ok", "data": dt})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
             
