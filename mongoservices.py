@@ -9,7 +9,7 @@ class mongoservices:
         uri = 'mongodb+srv://superkious:Ray100182@cluster0.rrbkqgx.mongodb.net/?retryWrites=true&w=majority'
         # create client
         client = MongoClient(uri)
-        db = client.transportdb
+        db = client.Towing
         return db
         
     def save_sample(self, data):
