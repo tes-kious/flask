@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from flask import Flask,jsonify, request
 import requests
 import json
-import urllib
+from bson.json_util import dumps
 
 class mongoservices:
     def condb(self):
@@ -27,10 +27,10 @@ class mongoservices:
             #return jsonify(data)
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            out = samples_coll.find_one(data, {"_id": 0 })
-            outs = json.dumps(out)
-            outt = urllib.parse.unquote(outs)
-            return jsonify(outt)  
+            cursor = samples_coll.find_one(data, {"_id": 0 })
+            list_cur = list(cursor)
+            json_data = dumps(list_cur)
+            return jsonify(json_data)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": outs})
         except Exception as ex:
@@ -41,13 +41,16 @@ class mongoservices:
             #return jsonify(data)
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            out = samples_coll.find(data, {"_id": 0 }).sort( { "driverId": 1 } )
-            newList[]
-            for item in out:
-                newList.append(item)
+            out = samples_coll.find(data, {"_id": 0 }).sort("_id", -1)
+            list_cur = list(cursor)
+            json_data = dumps(list_cur)
+            
+            #newList[]
+            #for item in out:
+            #    newList.append(item)
                 #outs = json.dumps(out)
                 #outt = urllib.parse.unquote(outs)
-            return jsonify(newList)  
+            return jsonify(json_data)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": outs})
         except Exception as ex:
