@@ -30,7 +30,7 @@ class mongoservices:
             outs = json.dumps(out)
             #return jsonify(outs)  
             #return jsonify({"code":"1","status" : "ok"})
-            return jsonify({"code":"1","status" : "ok", "data": dt})
+            return jsonify({"code":"1","status" : "ok", "data": outs})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
             
