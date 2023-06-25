@@ -27,7 +27,7 @@ class mongoservices:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
             out = samples_coll.find_one(data)
-            outs = json.loads(out)
+            outs = json.dumps(out)
             return jsonify(outs)  
             #return jsonify({"code":"1","status" : "ok"})
             #return jsonify({"code":"1","status" : "ok", "data": dt})
