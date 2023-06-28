@@ -1,6 +1,14 @@
-from flask import Flask, jsonify, request
-import os
 import mongoservices
+import json
+from flask import Flask, jsonify, request, _request_ctx_stack, render_template
+import os
+import mapservices
+from flask_cors import cross_origin
+from functools import wraps
+from six.moves.urllib.request import urlopen
+from jose import jwt
+import sys
+import random
 
 #AUTH0_DOMAIN = 'dev-s32eql6r5zsd0u3f.us.auth0.com'
 AUTH0_DOMAIN = 'dev-0xjvz6u4g1x2vx1f.us.auth0.com'
