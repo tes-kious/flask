@@ -136,6 +136,11 @@ def save_sample():
     data = request.json
     return mongosvc.save_sample(data)
 
+@app.route('/api/delete', methods=['POST'])
+def delete_sample():
+    data = request.json
+    return mongosvc.delete_sample(data)
+
 @app.route('/api/update', methods=['POST'])
 def update_sample():
     d = request.json
