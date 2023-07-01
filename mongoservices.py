@@ -46,8 +46,8 @@ class mongoservices:
         try:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            collection.update_one(data, upd)
-            samples_coll.insert_one(data)
+            samples_coll.update_one(data, upd)
+            #samples_coll.insert_one(data)
             return jsonify({"code":"1","status":"success"})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
