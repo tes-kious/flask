@@ -135,6 +135,14 @@ def menu():
 def save_sample():
     data = request.json
     return mongosvc.save_sample(data)
+
+@app.route('/api/update', methods=['POST'])
+def update_sample():
+    data = request.json
+    upkey = data["upKey"]
+    upval = data["upval"]
+    return {upkey: upval}
+    #return mongosvc.save_sample(data)
     
 @app.route('/api/findDriver', methods=['POST'])
 @cross_origin(headers=["Content-Type", "Authorization"])
