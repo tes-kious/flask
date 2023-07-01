@@ -7,7 +7,6 @@ import json
 from flask import Flask, jsonify, request, _request_ctx_stack, render_template
 import os
 import mongoservices
-import mapservices
 from flask_cors import cross_origin
 from functools import wraps
 from six.moves.urllib.request import urlopen
