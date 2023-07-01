@@ -141,11 +141,11 @@ def update_sample():
     data = request.json
     upkey = data["updKey"]
     upval = data["updVal"]
-    for key, value in d.items():
+    for key, value in data.items():
         del value['updKey']
-        d[key] = value
+        data[key] = value
         del value['updVal']
-        d[key] = value
+        data[key] = value
     update = {upkey: upval}
     return mongosvc.update_sample(data, update)
     
