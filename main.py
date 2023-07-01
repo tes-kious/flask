@@ -147,7 +147,10 @@ def select_driver():
 def select_sample():
     data = request.json
     return mongosvc.select_sample(data)
-
+    
+@app.route('/api/<id>/finds')  # /items
+def landing_page(id):
+    return {"item_id": id}
 
 if __name__ == '__main__':
     app.run(debug=True, port=os.getenv("PORT", default=5000))
