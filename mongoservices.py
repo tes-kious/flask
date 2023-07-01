@@ -48,7 +48,8 @@ class mongoservices:
             samples_coll = db.AllRideRequests
             newvalues = { "$set": upd }
             samples_coll.update_one(data, newvalues)
-            #samples_coll.insert_one(data)
+            #db.collection.ensureIndex({"field1":"text","field2":"text"})
+            #db.records.runCommand("text",{search:"foo bar"})
             return jsonify({"code":"1","status":"success"})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
