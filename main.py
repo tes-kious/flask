@@ -138,15 +138,12 @@ def save_sample():
 
 @app.route('/api/update', methods=['POST'])
 def update_sample():
-    data = request.json
-    upkey = data["updKey"]
-    upval = data["updVal"]
-    for key, value in data.items():
-        del value['updKey']
-        data[key] = value
-        del value['updVal']
-        data[key] = value
+    d = request.json
+    upkey = d["updKey"]
+    upval = d["updVal"]
     update = {upkey: upval}
+    oldval= d["driverId"]
+    data = {"driverId": oldval}
     return mongosvc.update_sample(data, update)
     
 @app.route('/api/findDriver', methods=['POST'])
