@@ -1,11 +1,23 @@
 import pymongo
 from pymongo import MongoClient
-from flask import Flask,jsonify, request
 import requests
 import json
 from bson.json_util import dumps
+import json
+from flask import Flask, jsonify, request, _request_ctx_stack, render_template
+import os
+import mongoservices
+import mapservices
+from flask_cors import cross_origin
+from functools import wraps
+from six.moves.urllib.request import urlopen
+from jose import jwt
+import sys
+import random
+
 
 class mongoservices:
+
     def condb(self):
         uri = 'mongodb+srv://superkious:Ray100182@cluster0.rrbkqgx.mongodb.net/?retryWrites=true&w=majority'
         # create client
@@ -17,6 +29,25 @@ class mongoservices:
         try:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
+            samples_coll.insert_one(data)
+            return jsonify({"code":"1","status":"success"})
+        except Exception as ex:
+            return jsonify({"code":"0","status":ex})
+
+    def save_sample(self, data):
+        try:
+            db = mongoservices.condb(self)
+            samples_coll = db.AllRideRequests
+            samples_coll.insert_one(data)
+            return jsonify({"code":"1","status":"success"})
+        except Exception as ex:
+            return jsonify({"code":"0","status":ex})
+
+    def update_sample(self, data, upd):
+        try:
+            db = mongoservices.condb(self)
+            samples_coll = db.AllRideRequests
+            collection.update_one(data, upd)
             samples_coll.insert_one(data)
             return jsonify({"code":"1","status":"success"})
         except Exception as ex:
