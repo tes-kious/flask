@@ -80,7 +80,7 @@ class mongoservices:
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
 
-    def select_alldriver(self, data):
+    def select_AllRideRequests(self, data):
         try:
             #return jsonify(data)
             db = mongoservices.condb(self)
@@ -94,7 +94,7 @@ class mongoservices:
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
 
-    def select_driver(self, data):
+    def select_drivers(self, data):
         try:
             #return jsonify(data)
             db = mongoservices.condb(self)
