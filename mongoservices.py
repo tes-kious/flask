@@ -58,7 +58,7 @@ class mongoservices:
         try:
             db = mongoservices.condb(self)
             samples_coll = db.AllRideRequests
-            db.mycoll.remove(data);
+            db.mycoll.remove(data)
             return jsonify({"code":"1","status":"success delete"})
         except Exception as ex:
             return jsonify({"code":"0","status":ex})
