@@ -151,6 +151,13 @@ def update_sample():
     data = {"driverId": oldval}
     return mongosvc.update_sample(data, update)
     
+@app.route('/api/findAllRideRequest', methods=['POST'])
+@cross_origin(headers=["Content-Type", "Authorization"])
+@requires_auth
+def select_driver():
+    data = request.json
+    return mongosvc.select_AllRideRequests(data)
+
 @app.route('/api/findDriver', methods=['POST'])
 @cross_origin(headers=["Content-Type", "Authorization"])
 @requires_auth
