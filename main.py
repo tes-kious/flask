@@ -154,14 +154,14 @@ def update_sample():
 @app.route('/api/findAllRideRequest', methods=['POST'])
 @cross_origin(headers=["Content-Type", "Authorization"])
 @requires_auth
-def select_driver():
+def select_findalldriver():
     data = request.json
     return mongosvc.select_AllRideRequests(data)
 
 @app.route('/api/findDriver', methods=['POST'])
 @cross_origin(headers=["Content-Type", "Authorization"])
 @requires_auth
-def select_driver():
+def select_finddriver():
     data = request.json
     return mongosvc.select_driver(data)
 
